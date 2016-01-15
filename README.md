@@ -17,8 +17,8 @@ It will install SDL2 and the SDL_Mixer component.
  - Go on the [PySDL2 repository](https://bitbucket.org/marcusva/py-sdl2/downloads) and download the latest version of PySDL2 (0.9.3 for now).
  - Extract the package and on Terminal go into the pysdl2 folder and launch the install script:
  ```sh
- $ cd PySDL2-0.9.3
- $ python setup.py install
+ cd PySDL2-0.9.3
+ python setup.py install
  ```
 
 ### Launching
@@ -27,9 +27,9 @@ It will install SDL2 and the SDL_Mixer component.
  - On the "Privacy" tab, click on "Accessibility" and check "Terminal" on the list (remember, you must have Admin privileges)
  - Now, on the Terminal download the repository and launch the script:
 ```sh
-$ git clone https://github.com/zeroerrequattro/softmech.git
-$ cd softmech
-$ python softmech-OSX.python
+git clone https://github.com/zeroerrequattro/softmech.git
+cd softmech
+python softmech-OSX.python
 ```
 
 ### Additional sounds
