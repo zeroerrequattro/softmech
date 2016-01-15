@@ -27,13 +27,11 @@ It will install SDL2 and the SDL_Mixer component.
  - On the "Privacy" tab, click on "Accessibility" and check "Terminal" on the list (remember, you must have Admin privileges)
  - Now, on the Terminal download the repository and launch the script:
 ```sh
-$ git clone https://github.com/zeroerrequattro/softmech.git 
+$ git clone https://github.com/zeroerrequattro/softmech.git
 $ cd softmech
 $ python softmech-OSX.python
 ```
-```sh
-$ python softmech-OSX.py
-```
+
 ### Additional sounds
 If you want to add your own sounds just put them in a folder and change the `sounddir` variable.  
 Sounds to be played on KeyDown must end with "down.wav", sounds to be played on KeyUp must end with "up.wav"
