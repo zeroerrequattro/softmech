@@ -3,12 +3,14 @@ softmech for OSX
 This is a little Python script originally created by rbino (http://github.com/rbino/softmech).
 It was edited in order to work on OS X.
 
-It plays a random sound whenever a key is pressed/released. Specifically, rbino sampled his CMStorm Quickfire TK with Blue Cherry switches.  
+It plays a random sound whenever a key is pressed/released. 
+Specifically, rbino sampled his CMStorm Quickfire TK with Blue Cherry switches.  
 Use it to annoy people when you don't have a mechanical keyboard with you.
 
 ### Dependencies
 This script uses SDL_Mixer, a component of DSL2 library.
  - Install [Homebrew](http://brew.sh/) and on Terminal write this:
+ 
 ```sh
 brew install sdl2
 brew install sdl2_mixer
@@ -16,6 +18,7 @@ brew install sdl2_mixer
 It will install SDL2 and the SDL_Mixer component.
  - Go on the [PySDL2 repository](https://bitbucket.org/marcusva/py-sdl2/downloads) and download the latest version of PySDL2 (0.9.3 for now).
  - Extract the package and on Terminal go into the PySDL2 folder and launch the install script:
+ 
  ```sh
  cd PySDL2-0.9.3
  python setup.py install
@@ -31,6 +34,8 @@ git clone https://github.com/zeroerrequattro/softmech.git
 cd softmech
 python softmech-OSX.python
 ```
+### Quit the app
+To quit from the application, just keep pressed the `ESC` button.
 
 ### Additional sounds
 If you want to add your own sounds just put them in a folder and change the `sounddir` variable.  
