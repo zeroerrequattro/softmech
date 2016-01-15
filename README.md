@@ -3,7 +3,7 @@ softmech for OSX
 This is a little Python script originally created by rbino (http://github.com/rbino/softmech).
 It was edited in order to work on OS X.
 
-It plays a random sound whenever a key is pressed/released. Specifically, I sampled my CMStorm Quickfire TK with Blue Cherry switches.  
+It plays a random sound whenever a key is pressed/released. Specifically, rbino sampled his CMStorm Quickfire TK with Blue Cherry switches.  
 Use it to annoy people when you don't have a mechanical keyboard with you.
 
 ### Dependencies
