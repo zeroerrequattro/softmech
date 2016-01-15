@@ -1,21 +1,32 @@
-softmech
+softmech for OSX
 =====
-This is a little Python script that plays a random sound whenever a key is pressed/released. Specifically, I sampled my CMStorm Quickfire TK with Blue Cherry switches.  
-Use it to annoy people when you don't have a mechanical keyboard with you.
-### Dependencies
-To install dependencies (on Debian Jessie):
-```sh
-$ sudo apt-get install python-xlib python-sdl2
-```  
+This is a little Python script originally created by rbino (http://github.com/rbino/softmech).
+It was edited in order to work on OS X.
 
-On Ubuntu <= 14.10 `python-sdl2` is not in the repo, so:
+It plays a random sound whenever a key is pressed/released. Specifically, I sampled my CMStorm Quickfire TK with Blue Cherry switches.  
+Use it to annoy people when you don't have a mechanical keyboard with you.
+
+### Dependencies
+This script uses SDL_Mixer, a component of DSL2 library.
+Install [Homebrew](http://brew.sh/) and on Terminal write this:
 ```sh
-$ sudo apt-get install python-xlib pip libsdl2-mixer-2.0-0
-$ sudo pip install PySDL2
+$ brew install sdl2
+$ brew install sdl2_mixer
 ```
+It will install SDL2 and the SDL2_Mixer component.
+
 ### Launching
+ - Open Terminal
+ - Open System Preferences and go to the "Security & Privacy" section
+ - On the "Privacy" tab, click on "Accessibility" and check "Terminal" on the list (remember, you must have Admin privileges)
+ - Now, on the Terminal download the repository and launch the script:
 ```sh
-$ ./softmech.py
+$ git clone https://github.com/zeroerrequattro/softmech.git 
+$ cd softmech
+$ python softmech-OSX.python
+```
+```sh
+$ python softmech-OSX.py
 ```
 ### Additional sounds
 If you want to add your own sounds just put them in a folder and change the `sounddir` variable.  
