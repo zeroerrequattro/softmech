@@ -8,12 +8,18 @@ Use it to annoy people when you don't have a mechanical keyboard with you.
 
 ### Dependencies
 This script uses SDL_Mixer, a component of DSL2 library.
-Install [Homebrew](http://brew.sh/) and on Terminal write this:
+ - Install [Homebrew](http://brew.sh/) and on Terminal write this:
 ```sh
 $ brew install sdl2
 $ brew install sdl2_mixer
 ```
-It will install SDL2 and the SDL2_Mixer component.
+It will install SDL2 and the SDL_Mixer component.
+ - Go on the [PySDL2 repository](https://bitbucket.org/marcusva/py-sdl2/downloads) and download the latest version of PySDL2 (0.9.3 for now).
+ - Extract the package and on Terminal go into the pysdl2 folder and launch the install script:
+ ```sh
+ $ cd PySDL2-0.9.3
+ $ python setup.py install
+ ```
 
 ### Launching
  - Open Terminal
