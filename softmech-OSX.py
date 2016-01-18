@@ -10,22 +10,34 @@ from sdl2.ext.compat import byteify
 from sdl2.sdlmixer import *
 import os
 
+# select the audio folder
 sounddir    = 'CMStormTKBlue'
 sounds      = os.listdir(sounddir)
 
-# call subprocess to play the sound (too slow)
-def playrandom(sounds):
-    Mix_PlayChannel(-1, choice(sounds), 0)
-    
-# Keyboard Events
+# initialization of the SDL audio component
+SDL_Init(SDL_INIT_AUDIO)
+Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 1, 256)
+
+downs =         [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'down.wav' in f]
+ups =           [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'up.wav' in f]
+spacedowns =    [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'down_space.wav' in f]
+spaceups =      [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'up_space.wav' in f]
+returndowns =   [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'down_return.wav' in f]
+returnups =     [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'up_return.wav' in f]
+
+# Keyboard Events, keyDown and keyUp events are catched here
 class AppDelegate(NSObject):
     def applicationDidFinishLaunching_(self, notification):
         downMask = NSKeyDownMask
         upMask = NSKeyUpMask
         NSEvent.addGlobalMonitorForEventsMatchingMask_handler_(downMask, downHandler)
         NSEvent.addGlobalMonitorForEventsMatchingMask_handler_(upMask, upHandler)
+        
+# play a random audiofile from a list
+def playrandom(sounds):
+    Mix_PlayChannel(-1, choice(sounds), 0)
 
-# Where the magic begins
+# keyboard Down event handler
 def downHandler(event):
     try:
         if (not event.isARepeat()):
@@ -42,7 +54,7 @@ def downHandler(event):
         AppHelper.stopEventLoop()
         raise
 
-# Where the magic begins
+# keyboard Up event handler
 def upHandler(event):
     try:
         if(event.keyCode() == 49): # space button
@@ -54,16 +66,6 @@ def upHandler(event):
     except KeyboardInterrupt:
         AppHelper.stopEventLoop()
         raise
-    
-SDL_Init(SDL_INIT_AUDIO)
-Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 1, 256)
-
-downs =         [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'down.wav' in f]
-ups =           [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'up.wav' in f]
-spacedowns =    [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'down_space.wav' in f]
-spaceups =      [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'up_space.wav' in f]
-returndowns =   [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'down_return.wav' in f]
-returnups =     [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'up_return.wav' in f]
        
 #main function
 def main():
