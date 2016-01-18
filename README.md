@@ -9,6 +9,9 @@ Use it to annoy people when you don't have a mechanical keyboard with you.
 
 ### Dependencies
 This script uses SDL_Mixer, a component of DSL2 library.
+It also uses the python package installed with XCode.
+So, before running all the packages installation, you need to have Xcode and the CLI Tools installed.
+
  - Install [Homebrew](http://brew.sh/) and on Terminal write this:
  
 ```sh
