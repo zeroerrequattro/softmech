@@ -10,8 +10,8 @@ from sdl2.ext.compat import byteify
 from sdl2.sdlmixer import *
 import os
 
-sounddir = 'CMStormTKBlue'
-sounds = os.listdir(sounddir)
+sounddir    = 'CMStormTKBlue'
+sounds      = os.listdir(sounddir)
 
 # call subprocess to play the sound (too slow)
 def playrandom(sounds):
@@ -39,6 +39,7 @@ def downHandler(event):
             playrandom(ups)
             AppHelper.stopEventLoop()
     except KeyboardInterrupt:
+        AppHelper.stopEventLoop()
         raise
 
 # Where the magic begins
@@ -51,11 +52,11 @@ def upHandler(event):
         else:
             playrandom(ups)
     except KeyboardInterrupt:
+        AppHelper.stopEventLoop()
         raise
-        
+    
 SDL_Init(SDL_INIT_AUDIO)
 Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 1, 256)
-sounds = os.listdir(sounddir)
 
 downs =         [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'down.wav' in f]
 ups =           [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in sounds if 'up.wav' in f]
@@ -66,15 +67,13 @@ returnups =     [Mix_LoadWAV(byteify(sounddir + os.sep + f, 'utf-8')) for f in s
        
 #main function
 def main():
-    app = NSApplication.sharedApplication()
-    delegate = AppDelegate.alloc().init()
-    NSApp().setDelegate_(delegate)
-    AppHelper.runEventLoop()
-    
-if __name__ == '__main__':
-    print 'let\'s start!'
     try:
-        main()
+        app = NSApplication.sharedApplication()
+        delegate = AppDelegate.alloc().init()
+        NSApp().setDelegate_(delegate)
+        AppHelper.runEventLoop()
     except KeyboardInterrupt:
         AppHelper.stopEventLoop()
-        
+    
+if __name__ == '__main__':
+    main()
